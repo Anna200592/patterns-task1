@@ -39,7 +39,7 @@ class DeliveryTest {
         $("[data-test-id=phone] input").setValue(validUser.getPhone());
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
-        $(byText("Успешно!")).shouldBe(visible, Duration.ofMillis(15000));
+        $(byText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
         $(".notification__content").shouldHave(text("Встреча успешно запланирована на " + firstMeetingDate),
                 Duration.ofSeconds(15)).shouldBe(visible);
         $("[data-test-id=success-notification] .icon-button__text").click();
@@ -49,7 +49,7 @@ class DeliveryTest {
         $$(".button").find(exactText("Запланировать")).click();
         $(withText("Необходимо подтверждение")).shouldBe(visible, Duration.ofSeconds(15));
         $$(".button").find(exactText("Перепланировать")).click();
-        $(byText("Успешно!")).shouldBe(visible, Duration.ofMillis(15000));
+        $(byText("Успешно!")).shouldBe(visible,Duration.ofSeconds(15));
         $(".notification__content").shouldHave(text("Встреча успешно запланирована на " + secondMeetingDate),
                 Duration.ofSeconds(15)).shouldBe(visible);
 
